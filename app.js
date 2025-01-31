@@ -4,12 +4,13 @@ function adicionarAmigo() {
     let addAmigos = document.getElementById('amigo').value;
     
     if (addAmigos == ""){
-        alert('Digite o nome de um amigo!');
+        alert('Digite o nome de um ou mais amigos para realizar o sorteio!');
     } else{
         arrayAmigos.push(addAmigos);
         exibirListaDeAmigos();
         limparCampoAddAmigos();
         console.log(arrayAmigos);
+        apagarSorteado();
     }
 }
 
@@ -37,4 +38,15 @@ function sortearAmigo() {
     let amigoSorteado = arrayAmigos[indiceAleatorio];
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = `O amigo sorteado foi ${amigoSorteado}`;
+    limparListaHtml();
+}
+
+function limparListaHtml() {
+    arrayAmigos = [];
+    document.getElementById('listaAmigos').innerHTML = '';
+    
+}
+
+function apagarSorteado() {
+    document.getElementById('resultado').innerHTML = '';
 }
