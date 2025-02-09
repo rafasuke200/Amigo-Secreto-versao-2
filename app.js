@@ -3,14 +3,14 @@ let arrayAmigos = [];
 function adicionarAmigo() {
     let addAmigos = document.getElementById('amigo').value;
     
-    if (addAmigos == ""){
+    if (addAmigos === ""){
         alert('Digite o nome de um ou mais amigos para realizar o sorteio!');
     } else{
         arrayAmigos.push(addAmigos);
         exibirListaDeAmigos();
         limparCampoAddAmigos();
         console.log(arrayAmigos);
-        apagarSorteado();
+        apagarSorteado()
     }
 }
 
@@ -39,6 +39,10 @@ function sortearAmigo() {
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = `O amigo sorteado foi ${amigoSorteado}`;
     limparListaHtml();
+    
+    setTimeout(()=>{
+        apagarSorteado();
+    }, 5000)
 }
 
 function limparListaHtml() {
